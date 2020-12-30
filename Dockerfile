@@ -1,6 +1,7 @@
 FROM node:15-buster-slim
 
-RUN apt -q update && apt install --yes software-properties-common
+RUN sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
+RUN sed -i "/^# deb.*universe/ s/^# //" /etc/apt/sources.list
 RUN add-apt-repository universe && \
     apt -q update && \
     apt install --yes \
