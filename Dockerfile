@@ -1,5 +1,6 @@
 FROM node:15-buster-slim
 
+RUN apt -q update && apt install --yes software-properties-common
 RUN add-apt-repository universe && \
     apt -q update && \
     apt install --yes \
